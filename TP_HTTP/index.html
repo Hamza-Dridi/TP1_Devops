@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Data</title>
+</head>
+<body>
+    <h1>Database Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Department ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody id="data-body">
+            <!-- Data will be populated here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch data from the API endpoint
+        fetch('http://simple-api-students:8080/students')
+            .then(response => response.json())
+            .then(data => {
+                // Populate table with fetched data
+                const dataBody = document.getElementById('data-body');
+                data.forEach(student => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${student.id}</td>
+                        <td>${student.department.id}</td>
+                        <td>${student.first_name}</td>
+                        <td>${student.last_name}</td>
+                    `;
+                    dataBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
