@@ -17,7 +17,8 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
+          distribution: 'adopt'
           java-version: '17'
 
       - name: Build and test with Maven
-        run: mvn clean test --file /path/to/pom.xml
+        run: mvn clean test --file "TP_JAVA/simple-api-student-main/pom.xml"
