@@ -13,8 +13,6 @@ services:
 
   simple-api-students:
     build: ./TP1_Devops/TP_JAVA/simple-api-student-main
-    ports:
-      - "8080:8080"
     networks:
       - app-network
     container_name: simple-api-students
@@ -23,8 +21,6 @@ services:
 
   bdd_postgresql:
     build: ./TP1_Devops/TP_Docker
-    ports:
-      - "8888:5432"
     environment:
       - POSTGRES_DB=db
       - POSTGRES_USER=usr

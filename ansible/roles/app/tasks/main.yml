@@ -1,0 +1,13 @@
+---
+# tasks file for roles/app
+- name: Run Simple API
+  docker_container:
+    name: simple-api-students
+    image: hamza10dridi/tp1_devops-simple-api-students:1.0
+    networks:
+      - name: app-network
+
+    env:
+      POSTGRES_DB: "{{ POSTGRES_DB }}"
+      POSTGRES_USER: "{{ POSTGRES_USER }}"
+      POSTGRES_PASSWORD: "{{ POSTGRES_PASSWORD }}"

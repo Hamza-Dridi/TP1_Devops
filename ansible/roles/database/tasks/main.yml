@@ -1,0 +1,13 @@
+---
+# tasks file for roles/database
+- name: RUN BDD
+  docker_container: 
+    name: bdd_postgresql
+    image: hamza10dridi/tp1_devops-bdd_postgresql:1.0
+    networks:
+      - name: app-network
+
+    env:
+          POSTGRES_DB: "{{ POSTGRES_DB }}"
+          POSTGRES_USER: "{{ POSTGRES_USER }}"
+          POSTGRES_PASSWORD: "{{ POSTGRES_PASSWORD }}"

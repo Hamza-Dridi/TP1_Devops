@@ -1,0 +1,10 @@
+---
+# tasks file for roles/proxy
+- name: Run Proxy
+  docker_container:
+    name: reverse_proxy
+    image: hamza10dridi/tp1_devops-reverse_proxy:1.0
+    published_ports:
+      - "80:80"
+    networks:
+      - name: app-network
