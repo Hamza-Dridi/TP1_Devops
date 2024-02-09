@@ -363,3 +363,9 @@ Je lance ensuite le playbook suivant en précisant l'ordre des roles et en impor
 J'utiliser la commande suivante : 
 
 ansible-playbook -i inventories/setup.yml --ask-vault-pass playbook.yml
+
+
+
+FRONT:
+
+- Je n'ai pas réussi à faire fonctionner le Front
